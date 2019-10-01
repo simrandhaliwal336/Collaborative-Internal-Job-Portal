@@ -2,34 +2,34 @@ import java.io.*;
 import java.util.*;
 import java.util.Scanner;
 public class Registration {
-	public static void main(String args[])
-	{
-		submitDetails();
-	}
+	public static String userName;
+	public static String passWord;
 	public static void submitDetails()
 	{
-		
 		String input="";
-		System.out.println("Registration\n\n");
-		System.out.println("Enter The Details Of Post\n");
-		System.out.println("Company Name:");
+		System.out.print("Registration\n\n");
+		System.out.print("Enter The Details Of Post\n");
+		System.out.print("Username:");
+		userName=stringInsertion();
+		System.out.print("Password:");
+		passWord=stringInsertion();
+		System.out.print("Company Name:");
 		String companyName = stringInsertion();
-		StringCheck(companyName);
-		System.out.println("\nEligibility:");
+		System.out.print("\nEligibility:");
 		String eligibility = stringInsertion();
-		System.out.println("\nLocation");
+		System.out.print("\nLocation");
 		String location=stringInsertion();
-		System.out.println("\nPackage");
+		System.out.print("\nPackage");
 		int package1=intInsertion();
-		System.out.println("\nNo. Of Vacancies:");
+		System.out.print("\nNo. Of Vacancies:");
 		int vacancies=intInsertion();
-		System.out.println("\nBatch");
+		System.out.print("\nBatch");
 		int Batch=intInsertion();
-		System.out.println("\nLast Date To Apply");
+		System.out.print("\nLast Date To Apply");
 		int lastDate=intInsertion();
-		System.out.println("\nSelect:\n");
-		System.out.println("\n00: resumit The Details\n");
-		System.out.println("\n01: Submot\n");
+		System.out.print("\nSelect:\n");
+		System.out.print("\n00: Resumit The Details\n");
+		System.out.print("\n01: Submit\n");
 		int submit=intInsertion();
 		if(submit==0)
 		{
@@ -43,29 +43,20 @@ public class Registration {
 	public static String stringInsertion()
 	{
 		String input="";
-		Scanner sc=new Scanner(System.in);
-		input = sc.next();
+		Scanner in=new Scanner(System.in);
+		input = in.next();
 		return input;
 	}
 	public static int intInsertion()
 	{
 		int input=0;
-		Scanner sc=new Scanner(System.in);
-		input=sc.nextInt();
-		return input;
-	}
-	public static boolean intcheck(int input)
-	{
-		boolean bool=false;
-		if(input.hasNextInt()==true)
+		Scanner in=new Scanner(System.in);
+		while(!in.hasNextInt())
 		{
-			bool=input.hasNextInt;
+			System.out.println("Please Enter Numeric Values");
+			in.hasNext();
 		}
-	}
-	public static boolean stringCheck(String input)
-	{
-		boolean bool=false;
-		if(input.hasNextString()==true)
-			bool=true;
+		input=in.nextInt();
+		return input;
 	}
 } 
